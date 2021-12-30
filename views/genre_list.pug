@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+    h1=title 
+
+    ul 
+        each gener in genre_list
+            li 
+                a(href=gener.url) #{gener.name}
+                | (#{gener.name})
+        else 
+            li a hihi đồ ngu
