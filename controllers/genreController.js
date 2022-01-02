@@ -23,14 +23,12 @@ exports.genre_detail = function(req, res, next) {
             Genre.findById(req.params.id)
               .exec(callback);
         },
-
         genre_books: function(callback) {
             Book.find({ 'genre': req.params.id })
               .exec(callback);
         },
-
     }, function(err, results) {
-        if (err) { return next(err); }
+        if (err) {return next(err); }
         if (results.genre==null) { // No results.
             var err = new Error('Genre not found');
             err.status = 404;
@@ -44,7 +42,7 @@ exports.genre_detail = function(req, res, next) {
 
 // Display Genre create form on GET.
 exports.genre_create_get = function(req, res,next) {
-   res.render('genre_form', {title:' Create Genre'})
+  res.render('genre_form', {title:' Create Genre'})
 };
 
 // Handle Genre create on POST.

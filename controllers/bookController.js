@@ -48,9 +48,10 @@ exports.book_detail = function(req, res,next) {
     async.parallel({
         book: function(callback){
             Book.findById(req.params.id)
-            .populate('author')
+            .populate('author') // trả về trường author có id... của bảng books
             .populate('genre')
             .exec(callback);
+          
         },
         book_instance: function(callback){
             BookInstance.find({'book':req.params.id})
@@ -171,7 +172,10 @@ exports.book_update_get = function(req, res, next) {
     // Get book, authors and genres for form.
     async.parallel({
         book: function(callback) {
-            Book.findById(req.params.id).populate('author').populate('genre').exec(callback);
+            Book.findById(req.params.id)
+            .populate('author')
+            .populate('genre')
+            .exec(callback);
         },
         authors: function(callback) {
             Author.find(callback);

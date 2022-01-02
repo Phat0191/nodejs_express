@@ -18,6 +18,9 @@ exports.author_list = function(req, res, next) {
   };
 
 // Display detail page for a specific Author.
+// return next() để chuyển sang hàm tiếp theo nếu ko handle sẽ bị treo ở hàm đó
+// các lệnh sau return next() sẽ ko đc thực thi
+// next() chạy xong các middleware function thì các line below next() sẽ được thực thi
 exports.author_detail = function(req, res, next) {
     async.parallel({
         author: function(callback){
