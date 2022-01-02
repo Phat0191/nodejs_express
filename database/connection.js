@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/admin';
+var mongoDB = 'mongodb+srv://admin:69GwK9jXvIzE4x3Q@cluster0.s5kk0.mongodb.net/ahihi?retryWrites=true&w=majority';
 
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
